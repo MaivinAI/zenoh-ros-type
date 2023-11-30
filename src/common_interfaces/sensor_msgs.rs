@@ -24,13 +24,6 @@ pub struct CompressedImage {
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
-pub struct FoxgloveCompressedVideo {
-    pub header: std_msgs::Header,
-    pub data: Vec<u8>,
-    pub format: String,
-}
-
-#[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct Image {
     pub header: std_msgs::Header,
     pub height: u32,
