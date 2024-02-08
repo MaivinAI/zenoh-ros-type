@@ -1,6 +1,7 @@
 use crate::builtin_interfaces::Time;
 use serde_derive::{Deserialize, Serialize};
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct AckermannControlCommand {
     pub stamp: Time,
@@ -8,6 +9,7 @@ pub struct AckermannControlCommand {
     pub longitudinal: LongitudinalCommand,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct AckermannLateralCommand {
     pub stamp: Time,
@@ -15,6 +17,7 @@ pub struct AckermannLateralCommand {
     pub steering_tire_rotation_rate: f32,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct HighLevelControlCommand {
     pub stamp: Time,
@@ -22,6 +25,7 @@ pub struct HighLevelControlCommand {
     pub curvature: f32,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct LongitudinalCommand {
     pub stamp: Time,

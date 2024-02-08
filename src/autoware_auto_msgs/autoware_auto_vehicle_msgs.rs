@@ -1,5 +1,4 @@
-use crate::builtin_interfaces::Time;
-use crate::std_msgs::Header;
+use crate::{builtin_interfaces::Time, std_msgs::Header};
 use serde_derive::{Deserialize, Serialize};
 
 pub mod control_mode_command {
@@ -7,6 +6,7 @@ pub mod control_mode_command {
     pub const AUTONOMOUS: u8 = 1;
     pub const MANUAL: u8 = 2;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct ControlModeCommand {
     pub stamp: Time,
@@ -22,12 +22,14 @@ pub mod control_mode_report {
     pub const DISENGAGED: u8 = 5;
     pub const NOT_READY: u8 = 6;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct ControlModeReport {
     pub stamp: Time,
     pub mode: u8,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct Engage {
     pub stamp: Time,
@@ -61,6 +63,7 @@ pub mod gear_command {
     pub const LOW: u8 = 23;
     pub const LOW_2: u8 = 24;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct GearCommand {
     pub stamp: Time,
@@ -94,18 +97,21 @@ pub mod gear_report {
     pub const LOW: u8 = 23;
     pub const LOW_2: u8 = 24;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct GearReport {
     pub stamp: Time,
     pub report: u8,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct HandbrakeCommand {
     pub stamp: Time,
     pub active: bool,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct HandbrakeReport {
     pub stamp: Time,
@@ -117,6 +123,7 @@ pub mod hazard_lights_command {
     pub const DISABLE: u8 = 1;
     pub const ENABLE: u8 = 2;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct HazardLightsCommand {
     pub stamp: Time,
@@ -127,12 +134,14 @@ pub mod hazard_lights_report {
     pub const DISABLE: u8 = 1;
     pub const ENABLE: u8 = 2;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct HazardLightsReport {
     pub stamp: Time,
     pub report: u8,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct SteeringReport {
     pub stamp: Time,
@@ -145,6 +154,7 @@ pub mod turn_indicators_command {
     pub const ENABLE_LEFT: u8 = 2;
     pub const ENABLE_RIGHT: u8 = 3;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct TurnIndicatorsCommand {
     pub stamp: Time,
@@ -156,12 +166,14 @@ pub mod turn_indicators_report {
     pub const ENABLE_LEFT: u8 = 2;
     pub const ENABLE_RIGHT: u8 = 3;
 }
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct TurnIndicatorsReport {
     pub stamp: Time,
     pub report: u8,
 }
 
+#[repr(C)]
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct VelocityReport {
     pub header: Header,
