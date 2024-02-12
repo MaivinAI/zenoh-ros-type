@@ -10,4 +10,5 @@ pub struct DeepviewDMABuf {
     pub height: u32,
     pub stride: u32,
     pub fourcc: u32,
+    pub length: u32,
 }
