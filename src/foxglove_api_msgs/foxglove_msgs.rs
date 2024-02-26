@@ -24,8 +24,24 @@ pub struct FoxgloveCircleAnnotations {
     pub position: FoxglovePoint2,
     pub diameter: f64,
     pub thickness: f64,
-    pub fill_color: std_msgs::ColorRGBA,
-    pub outline_color: std_msgs::ColorRGBA,
+    pub fill_color: FoxgloveColor,
+    pub outline_color: FoxgloveColor,
+}
+
+pub mod point_annotation_type {
+    pub const UNKNOWN: u8 = 0;
+
+    // Individual points: 0, 1, 2, ...
+    pub const POINTS: u8 = 1;
+
+    // Closed polygon: 0-1, 1-2, ..., (n-1)-n, n-0
+    pub const LINE_LOOP: u8 = 2;
+
+    // Connected line segments: 0-1, 1-2, ..., (n-1)-n
+    pub const LINE_STRIP: u8 = 3;
+
+    // Individual line segments: 0-1, 2-3, 4-5, ...
+    pub const LINE_LIST: u8 = 4;
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
@@ -33,9 +49,9 @@ pub struct FoxglovePointAnnotations {
     pub timestamp: builtin_interfaces::Time,
     pub type_: u8,
     pub points: Vec<FoxglovePoint2>,
-    pub outline_color: std_msgs::ColorRGBA,
-    pub outline_colors: Vec<std_msgs::ColorRGBA>,
-    pub fill_color: std_msgs::ColorRGBA,
+    pub outline_color: FoxgloveColor,
+    pub outline_colors: Vec<FoxgloveColor>,
+    pub fill_color: FoxgloveColor,
     pub thickness: f64,
 }
 
@@ -45,12 +61,20 @@ pub struct FoxgloveTextAnnotations {
     pub position: FoxglovePoint2,
     pub text: String,
     pub font_size: f64,
-    pub text_color: std_msgs::ColorRGBA,
-    pub background_color: std_msgs::ColorRGBA,
+    pub text_color: FoxgloveColor,
+    pub background_color: FoxgloveColor,
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct FoxglovePoint2 {
     pub x: f64,
     pub y: f64,
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
+pub struct FoxgloveColor {
+    pub r: f64,
+    pub g: f64,
+    pub b: f64,
+    pub a: f64,
 }
