@@ -1,16 +1,14 @@
 [package]
 name = "zenoh-ros-type"
 version = "0.3.3"
-authors = ["ChenYing Kuo <evshary@gmail.com>"]
+authors = ["ChenYing Kuo <evshary@gmail.com>", "Au-Zone Technologies <info@au-zone.com>"]
 description = "Common Rust struct for ROS 2 messages used by Zenoh"
 edition = "2021"
 license = "Apache-2.0"
 readme = "README.md"
-homepage = "https://github.com/evshary/zenoh-ros-type"
-repository = "https://github.com/evshary/zenoh-ros-type"
+homepage = "https://github.com/MaivinAI/zenoh-ros-type"
+repository = "https://github.com/MaivinAI/zenoh-ros-type"
 documentation = "https://docs.rs/zenoh-ros-type/"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 serde = "1.0.147"

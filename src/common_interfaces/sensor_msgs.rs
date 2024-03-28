@@ -110,16 +110,6 @@ pub struct PointField {
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
-pub struct RadCube {
-    pub header: std_msgs::Header,
-    pub layout: Vec<u8>,
-    pub shape: Vec<u16>,
-    pub scales: Vec<f32>,
-    pub cube: Vec<i16>,
-    pub is_complex: bool,
-}
-
-#[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct RegionOfInterest {
     pub x_offset: u32,
     pub y_offset: u32,

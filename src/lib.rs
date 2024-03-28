@@ -13,15 +13,15 @@
 
 pub mod autoware_auto_msgs;
 pub mod common_interfaces;
-pub mod deepview_api_msgs;
-pub mod foxglove_api_msgs;
+pub mod edgefirst_msgs;
+pub mod foxglove_msgs;
 pub mod rcl_interfaces;
 pub mod service;
 pub mod tier4_autoware_msgs;
 
 pub use autoware_auto_msgs::*;
 pub use common_interfaces::*;
-pub use deepview_api_msgs::*;
-pub use foxglove_api_msgs::*;
+pub use edgefirst_msgs::*;
+pub use foxglove_msgs::*;
 pub use rcl_interfaces::*;
 pub use tier4_autoware_msgs::*;
