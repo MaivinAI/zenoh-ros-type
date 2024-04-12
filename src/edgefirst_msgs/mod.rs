@@ -1,4 +1,4 @@
-use crate::std_msgs;
+use crate::{builtin_interfaces::Time, std_msgs};
 use serde_derive::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
@@ -33,4 +33,32 @@ pub mod radar_cube_dimension {
     pub const ELEVATION: u8 = 4;
     pub const RXCHANNEL: u8 = 5;
     pub const SEQUENCE: u8 = 6;
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
+pub struct DeepviewDetectBoxes2D {
+    pub header: std_msgs::Header,
+    pub input_timestamp: Time,
+    pub model_tile: Time,
+    pub output_time: Time,
+    pub boxes: Vec<DeepviewDetectBox2D>,
+}
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
+pub struct DeepviewDetectBox2D {
+    pub center_x: f32,
+    pub center_y: f32,
+    pub width: f32,
+    pub height: f32,
+    pub label: String,
+    pub score: f32,
+    pub distance: f32,
+    pub speed: f32,
+    pub is_tracked: bool,
+    pub track: DeepviewDetectTrack,
+}
+#[derive(Serialize, Deserialize, PartialEq, Clone)]
+pub struct DeepviewDetectTrack {
+    pub id: String,
+    pub lifetime: i32,
+    pub created: Time,
 }
