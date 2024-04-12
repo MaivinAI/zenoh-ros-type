@@ -39,7 +39,7 @@ pub mod radar_cube_dimension {
 pub struct DetectBoxes2D {
     pub header: std_msgs::Header,
     pub input_timestamp: Time,
-    pub model_tile: Time,
+    pub model_time: Time,
     pub output_time: Time,
     pub boxes: Vec<DetectBox2D>,
 }
