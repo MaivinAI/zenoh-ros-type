@@ -36,15 +36,15 @@ pub mod radar_cube_dimension {
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
-pub struct DeepviewDetectBoxes2D {
+pub struct DetectBoxes2D {
     pub header: std_msgs::Header,
     pub input_timestamp: Time,
     pub model_tile: Time,
     pub output_time: Time,
-    pub boxes: Vec<DeepviewDetectBox2D>,
+    pub boxes: Vec<DetectBox2D>,
 }
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
-pub struct DeepviewDetectBox2D {
+pub struct DetectBox2D {
     pub center_x: f32,
     pub center_y: f32,
     pub width: f32,
@@ -54,10 +54,10 @@ pub struct DeepviewDetectBox2D {
     pub distance: f32,
     pub speed: f32,
     pub is_tracked: bool,
-    pub track: DeepviewDetectTrack,
+    pub track: DetectTrack,
 }
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
-pub struct DeepviewDetectTrack {
+pub struct DetectTrack {
     pub id: String,
     pub lifetime: i32,
     pub created: Time,
